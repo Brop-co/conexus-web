@@ -1,10 +1,11 @@
 import React from "react";
 import { StarIcon } from "../../core/icons";
+import Image from "next/image";
 
 const Hero = () => {
   return (
     <section className=" text-white">
-      <div className="m-[2vw] rounded-3xl bg-gradient-to-r from-primary to-secondary ">
+      <div className="m-[2vw] rounded-3xl bg-orange-blue-gradient ">
         <div className="bg-white bg-opacity-10 flex gap-5 flex-shrink-0 overflow-hidden w-full rounded-t-3xl p-4">
           {Array.from({ length: 8 }).map((_, index) => (
             <div className="flex gap-5 items-center text-white" key={index}>
@@ -13,37 +14,58 @@ const Hero = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-between py-10 px-[4vw]">
+        <div className="flex justify-between py-10 px-[4vw] relative">
           <div className="w-fit">
             <div className="flex  gap-4">
               {Array.from({ length: 3 }).map((_, idx) => (
                 <div
                   key={idx}
-                  className={`col-span-2 bg-white bg-opacity-15  p-3 rounded-2xl flex flex-col justify-center items-start`}
+                  className={`col-span-2 bg-white bg-opacity-15  px-2 pt-2 rounded-2xl flex flex-col justify-center items-start`}
                 >
                   <h3 className="text-2xl font-bold mb-2">20K+</h3>
                   <p className="text-sm mb-4">Lorem Ipsum</p>
                 </div>
               ))}
             </div>
-            <p className="text-xs">
+            <p className="text-m mt-10">
               Commute in <br /> LuxuryCommute in Luxury <br /> Commute in Luxury
             </p>
-            <div className="flex space-x-2 mt-4">
+            <div className="flex space-x-2 mt-10">
               {/* Social Icons */}
-              {["facebook", "instagram", "linkedin"].map((icon, index) => (
+              {["instagram", "linkedin", "youtube"].map((icon, index) => (
                 <button
                   key={index}
-                  className="bg-white/20 p-2 rounded-full hover:bg-white/40"
+                  className="bg-white/20  rounded-full hover:bg-white/40 h-12 w-12 border flex items-center justify-center"
                 >
                   <span className="sr-only">{icon}</span>
-                  <i className={`fab fa-${icon}`} />
+                  <i className={`fab fa-${icon} fa-lg`} />
                 </button>
               ))}
             </div>
           </div>
+
+          <div className="absolute bottom-0 left-[40%]">
+            <Image src={`/phone.svg`} alt={"Phone"} width={360} height={360} />
+          </div>
+          <div>
+            <div className="flex space-x-4">
+              {/* Social Icons */}
+              {["apple", "android"].map((icon, index) => (
+                <button
+                  key={index}
+                  className="bg-white/20  rounded-full hover:bg-white/40 h-12 w-12 border flex items-center justify-center"
+                >
+                  <span className="sr-only">{icon}</span>
+                  <i className={`fab fa-${icon} fa-lg`} />
+                </button>
+              ))}
+            </div>
+            <p className="text-m mt-10">
+              Commute in <br /> LuxuryCommute in Luxury <br /> Commute in Luxury
+            </p>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 text-center md:text-left">
+        {/* <div className="grid grid-cols-1 md:grid-cols-5 gap-4 text-center md:text-left">
           {["purple", "orange"].map((color, idx) => (
             <div
               key={idx}
@@ -54,10 +76,8 @@ const Hero = () => {
             </div>
           ))}
 
-          {/* Center Image */}
           <div className="relative flex items-center justify-center">
             <div className="bg-gray-700 rounded-lg p-4">
-              {/* Placeholder for mobile */}
               <img
                 src="https://via.placeholder.com/200x400"
                 alt="Mobile App Preview"
@@ -68,7 +88,7 @@ const Hero = () => {
               Coming Soon
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Bottom Section */}

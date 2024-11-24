@@ -1,6 +1,7 @@
 import React from "react";
 import { StarIcon } from "../../core/icons";
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -44,9 +45,6 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-[40%]">
-            <Image src={`/phone.svg`} alt={"Phone"} width={360} height={360} />
-          </div>
           <div>
             <div className="flex space-x-4">
               {/* Social Icons */}
@@ -63,6 +61,16 @@ const Hero = () => {
             <p className="text-m mt-10">
               Commute in <br /> LuxuryCommute in Luxury <br /> Commute in Luxury
             </p>
+          </div>
+          <div className="absolute bottom-0 left-[40%] flex items-center flex-col">
+            <Image src={`/phone.svg`} alt={"Phone"} width={360} height={360} />
+            <div className=" absolute bottom-[-30px] px-px py-[.05rem] rounded-full bg-orange-blue-gradient">
+              <Link href="">
+                <p className="text-[24px] rounded-full bg-faded-orange-blue-gradient bg-white text-gray-600 px-8 py-2">
+                  Coming Soon
+                </p>
+              </Link>
+            </div>
           </div>
         </div>
         {/* <div className="grid grid-cols-1 md:grid-cols-5 gap-4 text-center md:text-left">

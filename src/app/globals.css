@@ -6,13 +6,13 @@
   --background: #ffffff;
   --foreground: #171717;
 }
-
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   color: var(--foreground);
@@ -22,7 +22,7 @@ body {
 
 @font-face {
   font-family: "Font Spring";
-  src: url("/fonts/SFPRODISPLAYREGULAR.woff") format("woff");
+  src: url("/fonts/SFPRODISPLAYREGULAR.OTF") format("opentype");
   font-weight: normal;
   font-style: normal;
 }

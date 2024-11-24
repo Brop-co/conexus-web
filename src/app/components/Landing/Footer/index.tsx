@@ -1,24 +1,48 @@
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { IoGlobeOutline } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white m-[2vw] py-10 rounded-2xl">
+    <footer className="bg-black text-white m-[2vw] p-[3.5vw] rounded-2xl">
       <div className="container mx-auto px-4">
         {/* Top Section */}
 
         <div className="flex flex-wrap justify-between items-center mb-8">
           {/* Logo and QR Code */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3">
+            <Image
+              src={`/logo.svg`}
+              width={100}
+              height={100}
+              alt="Conexus Logo"
+            />
             <div className="text-2xl font-bold">Conexus</div>
+          </div>
+          <div className="hidden md:flex border border-white rounded-full px-4 py-3 gap-2  ">
+            <IoGlobeOutline />
+            <select
+              name=""
+              id=""
+              className="outline-none bg-transparent font-semibold"
+            >
+              <option value="english" className="bg-black px-5">
+                English
+              </option>
+              <option value="kiny" className="bg-black">
+                Kinyarwanda
+              </option>
+            </select>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-700 my-6"></div>
+        <div className="border-t border-gray-700 my-10"></div>
 
-        <div className="flex flex-wrap justify-between items-center mb-8">
+        <div className="flex flex-col lg:flex-row justify-between items-center mb-8 gap-20 lg:gap-5">
           {/* Logo and QR Code */}
-          <div className="w-2/5 flex items-center space-x-4 border-r border-gray-700 px-5">
+          <div className="lg:w-2/5 flex items-center space-x-4 lg:border-r border-gray-700 px-5">
             <div className="flex items-center">
               <div className="bg-gray-800 rounded-lg p-4">
                 {/* Placeholder for QR Code */}
@@ -33,12 +57,14 @@ const Footer = () => {
           </div>
 
           {/* Subscribe Section */}
-          <div className="w-3/5 flex flex-col space-y-3  px-5">
-            <p className="text-white text-center md:text-left text-xl">Subscribe</p>
+          <div className="lg:w-3/5 flex flex-col space-y-3  px-5">
+            <p className="text-white text-center md:text-left text-xl font-bold">
+              Subscribe
+            </p>
             <p className="text-gray-400 text-center md:text-left">
               Get Product updates and our changelog. No spam ever.
             </p>
-            <div className="flex gap-2">
+            <div className="flex flex-col md:flex-row gap-2">
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -52,111 +78,114 @@ const Footer = () => {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-700 my-6"></div>
+        <div className="border-t border-gray-700 my-10"></div>
 
         {/* Bottom Section */}
         <div className="flex flex-wrap justify-between text-sm text-gray-400">
           {/* Company Links */}
           <div className="w-1/2 md:w-auto mb-4 md:mb-0">
-            <h5 className="font-bold text-white mb-2">Company</h5>
+            <h5 className="font-bold text-white mb-2 text-2xl ">Company</h5>
             <ul>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="" className="text-white opacity-55 text-lg">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="" className="text-white opacity-55 text-lg">
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="" className="text-white opacity-55 text-lg">
                   Careers
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Investment Links */}
           <div className="w-1/2 md:w-auto mb-4 md:mb-0">
-            <h5 className="font-bold text-white mb-2">Invest</h5>
+            <h5 className="font-bold text-white mb-2 text-2xl ">Invest</h5>
             <ul>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="" className="text-white opacity-55 text-lg">
                   Standard
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="" className="text-white opacity-55 text-lg">
                   Silver
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="" className="text-white opacity-55 text-lg">
                   Gold
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="" className="text-white opacity-55 text-lg">
                   Platinum
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Community Links */}
           <div className="w-1/2 md:w-auto mb-4 md:mb-0">
-            <h5 className="font-bold text-white mb-2">Community</h5>
+            <h5 className="font-bold text-white mb-2 text-2xl ">Community</h5>
             <ul>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="" className="text-white opacity-55 text-lg">
                   Join The Talent Team
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="" className="text-white opacity-55 text-lg">
                   Invite your friends
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Social Links */}
           <div className="w-1/2 md:w-auto mb-4 md:mb-0">
-            <h5 className="font-bold text-white mb-2">Social</h5>
+            <h5 className="font-bold text-white mb-2 text-2xl ">Social</h5>
             <ul>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="" className="text-white opacity-55 text-lg">
                   LinkedIn
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="" className="text-white opacity-55 text-lg">
                   Instagram
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="" className="text-white opacity-55 text-lg">
                   Facebook
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <Link href="" className="text-white opacity-55 text-lg">
                   YouTube
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-700 my-6"></div>
+        <div className="border-t border-gray-700 my-10"></div>
 
         {/* Footer Bottom */}
         <div className="text-center text-gray-500 mt-8 text-xs">
           Copyright © 2025{" "}
-          <a href="mailto:team@conexus.rw" className="hover:underline">
+          <a
+            href="mailto:team@conexus.rw"
+            className="hover:underline font-bold text-white"
+          >
             team@conexus.rw
           </a>
         </div>

@@ -2,7 +2,6 @@ import React from "react";
 import { StarIcon } from "../../core/icons";
 import Image from "next/image";
 import Link from "next/link";
-import image3 from "../../../../assets/image3.png";
 
 const Hero = () => {
   return (

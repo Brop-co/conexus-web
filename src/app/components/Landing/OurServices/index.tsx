@@ -1,8 +1,12 @@
+import Image from "next/image";
 import React from "react";
+import image1 from "@/assets/image1.png";
+import image3 from "@/assets/image3.png";
+import { FiDownload } from "react-icons/fi";
 
 const OurServices = () => {
   return (
-    <section className=" text-white">
+    <section className=" ">
       {/* Header Section */}
       <div className="container mx-auto px-4 py-10">
         <h2 className="text-4xl font-bold">
@@ -61,10 +65,12 @@ const OurServices = () => {
 
         {/* Right Section - Video */}
         <div className="relative flex-1">
-          <img
-            src="https://via.placeholder.com/600x300"
-            alt="App demonstration"
-            className="rounded-xl"
+          <Image
+            src={image1}
+            width={1000}
+            height={1000}
+            alt="Image1"
+            className="w-1/3"
           />
           <button className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-xl">
             <svg
@@ -132,6 +138,30 @@ const OurServices = () => {
           </div>
 
           {/* Call-to-action */}
+        </div>
+      </div>
+
+      <div className="flex m-[2vw] gap-4">
+        <Image
+          src={image3}
+          width={1000}
+          height={1000}
+          alt="Image1"
+          className="w-1/3"
+        />
+        <div className="rounded-2xl flex flex-col  gap-5 flex-grow w-2/3 bg-gradient-to-r from-primary to-secondary text-white p-10  text-center items-center">
+          <p className="text-4xl ">
+            An Affordable way to <br /> Ride
+          </p>
+          <p className="text-lg w-[80%]">
+            Euismod volutpat molestie neque pulvinar amet erat amet. Eleifend
+            mauris ut duis eu urna ullamcorper hendrerit. Euismod volutpat
+            molestie neque pulvi.
+          </p>
+          <button className="bg-white text-primary flex gap-2 px-10 py-3 rounded-3xl items-center w-fit ">
+            <p>Get The App</p>
+            <FiDownload />
+          </button>
         </div>
       </div>
     </section>

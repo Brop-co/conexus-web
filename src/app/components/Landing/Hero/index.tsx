@@ -5,7 +5,7 @@ import { StarIcon } from "../../core/icons";
 import Image from "next/image";
 import Link from "next/link";
 
-const AutoCountingComponent = ({ endValue }: { endValue?: number }) => {
+const AutoCountingComponent = () => {
   return (
     <div className="grid grid-cols-6 gap-4">
       {Array.from({ length: 3 }).map((_, idx) => (

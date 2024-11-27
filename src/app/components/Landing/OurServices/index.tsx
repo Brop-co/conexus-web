@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import image1 from "@/assets/image1.png";
 import image3 from "@/assets/image3.png";
 import { FiDownload } from "react-icons/fi";
 

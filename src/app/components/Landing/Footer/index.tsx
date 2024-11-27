@@ -1,32 +1,25 @@
+import { footerLinks } from "@/app/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { IoGlobeOutline } from "react-icons/io5";
 
 const Footer = () => {
+
+
   return (
     <footer className="bg-black text-white m-[2vw] p-[3.5vw] rounded-2xl">
       <div className="container mx-auto px-4">
         {/* Top Section */}
-
         <div className="flex flex-wrap justify-between items-center mb-8">
           {/* Logo and QR Code */}
           <div className="flex items-center space-x-3">
-            <Image
-              src={`/logo.svg`}
-              width={100}
-              height={100}
-              alt="Conexus Logo"
-            />
+            <Image src={`/logo.svg`} width={100} height={100} alt="Conexus Logo" />
             <div className="text-2xl font-bold">Conexus</div>
           </div>
-          <div className="hidden md:flex border border-white rounded-full px-4 py-3 gap-2  ">
+          <div className="hidden md:flex border border-white rounded-full px-4 py-3 gap-2">
             <IoGlobeOutline />
-            <select
-              name=""
-              id=""
-              className="outline-none bg-transparent font-semibold"
-            >
+            <select name="" id="" className="outline-none bg-transparent font-semibold">
               <option value="english" className="bg-black px-5">
                 English
               </option>
@@ -41,7 +34,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 my-10"></div>
 
         <div className="flex flex-col lg:flex-row justify-between items-center mb-8 gap-20 lg:gap-5">
-          {/* Logo and QR Code */}
+          {/* QR Code Section */}
           <div className="lg:w-2/5 flex items-center space-x-4 lg:border-r border-gray-700 px-5">
             <div className="flex items-center">
               <div className="bg-gray-800 rounded-lg p-4">
@@ -57,7 +50,7 @@ const Footer = () => {
           </div>
 
           {/* Subscribe Section */}
-          <div className="lg:w-3/5 flex flex-col space-y-3  px-5">
+          <div className="lg:w-3/5 flex flex-col space-y-3 px-5">
             <p className="text-white text-center md:text-left text-xl font-bold">
               Subscribe
             </p>
@@ -80,114 +73,58 @@ const Footer = () => {
         {/* Divider */}
         <div className="border-t border-gray-700 my-10"></div>
 
-        {/* Bottom Section */}
+        {/* Footer Links */}
         <div className="flex flex-wrap justify-between text-sm text-gray-400">
-          {/* Company Links */}
+          {footerLinks.map((section, index) => (
+            <div className="w-1/2 md:w-auto mb-4 md:mb-0" key={index}>
+              <h5 className="font-bold text-white mb-2 text-2xl">{section.title}</h5>
+              <ul>
+                {section.links.map((link, linkIndex) => (
+                  <li key={linkIndex}>
+                    <Link href={link.href} className="text-white opacity-55 text-lg">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          {/* Blog or Resources Section */}
           <div className="w-1/2 md:w-auto mb-4 md:mb-0">
-            <h5 className="font-bold text-white mb-2 text-2xl ">Company</h5>
+            <h5 className="font-bold text-white mb-2 text-2xl">Blog & Resources</h5>
             <ul>
-              <li>
-                <Link href="" className="text-white opacity-55 text-lg">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="" className="text-white opacity-55 text-lg">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="" className="text-white opacity-55 text-lg">
-                  Careers
-                </Link>
-              </li>
+              <li><Link href="/blog" className="text-white opacity-55 text-lg">Our Blog</Link></li>
+              <li><Link href="/tutorials" className="text-white opacity-55 text-lg">Tutorials</Link></li>
+              <li><Link href="/news" className="text-white opacity-55 text-lg">Company News</Link></li>
+              <li><Link href="/industry-insights" className="text-white opacity-55 text-lg">Industry Insights</Link></li>
+              <li><Link href="/guides" className="text-white opacity-55 text-lg">Guides</Link></li>
             </ul>
           </div>
 
-          {/* Investment Links */}
-          <div className="w-1/2 md:w-auto mb-4 md:mb-0">
-            <h5 className="font-bold text-white mb-2 text-2xl ">Invest</h5>
-            <ul>
-              <li>
-                <Link href="" className="text-white opacity-55 text-lg">
-                  Standard
-                </Link>
-              </li>
-              <li>
-                <Link href="" className="text-white opacity-55 text-lg">
-                  Silver
-                </Link>
-              </li>
-              <li>
-                <Link href="" className="text-white opacity-55 text-lg">
-                  Gold
-                </Link>
-              </li>
-              <li>
-                <Link href="" className="text-white opacity-55 text-lg">
-                  Platinum
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Community Links */}
-          <div className="w-1/2 md:w-auto mb-4 md:mb-0">
-            <h5 className="font-bold text-white mb-2 text-2xl ">Community</h5>
-            <ul>
-              <li>
-                <Link href="" className="text-white opacity-55 text-lg">
-                  Join The Talent Team
-                </Link>
-              </li>
-              <li>
-                <Link href="" className="text-white opacity-55 text-lg">
-                  Invite your friends
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Social Links */}
-          <div className="w-1/2 md:w-auto mb-4 md:mb-0">
-            <h5 className="font-bold text-white mb-2 text-2xl ">Social</h5>
-            <ul>
-              <li>
-                <Link href="" className="text-white opacity-55 text-lg">
-                  LinkedIn
-                </Link>
-              </li>
-              <li>
-                <Link href="" className="text-white opacity-55 text-lg">
-                  Instagram
-                </Link>
-              </li>
-              <li>
-                <Link href="" className="text-white opacity-55 text-lg">
-                  Facebook
-                </Link>
-              </li>
-              <li>
-                <Link href="" className="text-white opacity-55 text-lg">
-                  YouTube
-                </Link>
-              </li>
-            </ul>
-          </div>
         </div>
 
         {/* Divider */}
         <div className="border-t border-gray-700 my-10"></div>
 
         {/* Footer Bottom */}
-        <div className="text-center text-gray-500 mt-8 text-xs">
-          Copyright © 2025{" "}
-          <a
-            href="mailto:team@conexus.rw"
-            className="hover:underline font-bold text-white"
-          >
-            team@brop.rw
-          </a>
+        <div className="flex justify-between items-center">
+          {/* Back to top */}
+          <div>
+            <Link href="#" className="text-white opacity-55 text-sm hover:underline">
+              Back to top
+            </Link>
+          </div>
+          {/* Copyright and Email */}
+          <div className="text-center text-gray-500 mt-8 text-xs">
+            Copyright © 2025{" "}
+            <a
+              href="mailto:team@conexus.rw"
+              className="hover:underline font-bold text-white"
+            >
+              team@brop.rw
+            </a>
+          </div>
         </div>
       </div>
     </footer>

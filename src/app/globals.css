@@ -30,6 +30,7 @@ body {
 /* Apply the font globally */
 * {
   font-family: "Font Spring", sans-serif;
+  scroll-behavior: smooth;
 }
 
 

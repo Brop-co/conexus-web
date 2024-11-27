@@ -5,27 +5,26 @@ import React from "react";
 
 type Props = object;
 
-function Header({}: Props) {
+function Header({ }: Props) {
   return (
-    <section className="min-w-full flex p-1 pl-3 pr-3 items-center justify-between">
+    <section className="min-w-full flex p-1 px-3 items-center justify-between sticky top-0 backdrop:blur-lg z-50 bg-white shadow-md">
       <div className="w-auto  gap-2 hidden md:flex">
         {headerListItems.map((item, index) => (
-          <Link
-            className={`p-2 backdrop:blur-lg rounded-full pl-4 pr-4  ${
-              index == 0
+          <a
+            className={`p-2 backdrop:blur-lg rounded-full pl-4 pr-4  ${index == 0
                 ? "bg-orange-blue-gradient text-white"
                 : "bg-black bg-opacity-[.03] hover:bg-opacity-10"
-            }`}
+              }`}
             href={item.link}
             key={index}
           >
             {item.name}
-          </Link>
+          </a>
         ))}
       </div>
 
       <div>
-        <Image src={`/logo.svg`} className="w-[60px] md:w-[100px]" width={100} height={100} alt="Conexus Logo" />
+        <Image src={`/logo.svg`} className="w-[60px]" width={100} height={100} alt="Conexus Logo" />
       </div>
       <div className="px-px p-[0.65rem] md:p-0 rounded-full bg-orange-blue-gradient">
         <Link

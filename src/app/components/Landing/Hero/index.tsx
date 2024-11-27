@@ -100,7 +100,7 @@ const Hero = () => {
           </div>
 
           <div>
-            <div className="flex space-x-4">
+            <div className="md:flex hidden space-x-4">
               {/* Social Icons */}
               {["apple", "android"].map((icon, index) => (
                 <button
@@ -112,11 +112,11 @@ const Hero = () => {
                 </button>
               ))}
             </div>
-            <p className="text-m mt-10">
+            <p className="text-m mt-10 md:block hidden">
               Commute in <br /> LuxuryCommute in Luxury <br /> Commute in Luxury
             </p>
           </div>
-          <div className="absolute bottom-0 left-[40%] flex items-center flex-col">
+          <div className="absolute bottom-0 left-[40%] xl:flex hidden items-center flex-col">
             <Image src={`/phone.svg`} alt={"Phone"} width={360} height={360} />
             <div className=" absolute bottom-[-30px] px-px py-[.05rem] rounded-full bg-orange-blue-gradient">
               <Link href="">

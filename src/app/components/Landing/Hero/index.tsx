@@ -6,14 +6,16 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <section className=" text-white">
-      <div className="m-[2vw] mb-[6vh]  rounded-3xl bg-orange-blue-gradient ">
-        <div className="bg-white bg-opacity-10 flex gap-5 flex-shrink-0 overflow-hidden w-full rounded-t-3xl p-4">
-          {Array.from({ length: 8 }).map((_, index) => (
-            <div className="flex gap-5 items-center text-white" key={index}>
-              <StarIcon className="w-8 h-8" />
-              <p className="text-6xl font-extralight">Conexus</p>
-            </div>
-          ))}
+      <div className="m-[2vw] mb-[6vh]  rounded-3xl bg-orange-blue-gradient">
+        <div className="marquee bg-white bg-opacity-10 rounded-t-3xl p-4">
+          <div className="marquee-inner flex gap-5 w-auto overflow-hidden">
+            {Array.from({ length: 8 }).map((_, index) => (
+              <div className="flex gap-5 items-center text-white" key={index}>
+                <StarIcon className="w-8 h-8" />
+                <p className="text-6xl font-extralight">Conexus</p>
+              </div>
+            ))}
+         </div>
         </div>
         <div className="flex justify-between py-10 px-[4vw] relative">
           <div className="w-fit">

@@ -31,3 +31,17 @@ body {
 * {
   font-family: "Font Spring", sans-serif;
 }
+
+
+.marquee-inner {
+  animation: marquee 10s linear infinite !important;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

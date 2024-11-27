@@ -1,7 +1,58 @@
-import React from "react";
+'use client'
+
+import React, { useState, useEffect } from "react";
 import { StarIcon } from "../../core/icons";
 import Image from "next/image";
 import Link from "next/link";
+
+const AutoCountingComponent = ({ endValue }: { endValue?: number }) => {
+  return (
+    <div className="grid grid-cols-6 gap-4">
+      {Array.from({ length: 3 }).map((_, idx) => (
+        <AnimatedCounter key={idx} endValue={Math.random() * 20000} />
+      ))}
+    </div>
+  );
+};
+
+const AnimatedCounter = ({ endValue }: { endValue: number }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const duration = 2000;
+    const intervalTime = 20;
+    const increment = endValue / (duration / intervalTime);
+
+    const counter = setInterval(() => {
+      setCount((prevCount) => {
+        if (prevCount + increment >= endValue) {
+          clearInterval(counter);
+          return endValue;
+        }
+        return prevCount + increment;
+      });
+    }, intervalTime);
+
+    return () => clearInterval(counter);
+  }, [endValue]);
+
+  return (
+    <div className="col-span-2 bg-white bg-opacity-15 px-2 pt-2 rounded-2xl flex flex-col justify-center items-start">
+      <h3 className="text-2xl font-bold mb-2">{formatNumber(count)}+</h3>
+      <p className="text-sm mb-4">Lorem Ipsum</p>
+    </div>
+  );
+};
+
+const formatNumber = (num: number) => {
+  if (num >= 1_000_000) {
+    return (num / 1_000_000).toFixed(1) + 'M'; // Format with 'M' for millions
+  }
+  if (num >= 1_000) {
+    return (num / 1_000).toFixed(1) + 'K'; // Format with 'K' for thousands
+  }
+  return num.toLocaleString(); // Return the number as it is if it's less than 1K
+};
 
 const Hero = () => {
   return (
@@ -20,7 +71,7 @@ const Hero = () => {
         <div className="flex justify-between py-10 px-[4vw] relative">
           <div className="w-fit">
             <div className="flex  gap-4">
-              {Array.from({ length: 3 }).map((_, idx) => (
+              {/* {Array.from({ length: 3 }).map((_, idx) => (
                 <div
                   key={idx}
                   className={`col-span-2 bg-white bg-opacity-15  px-2 pt-2 rounded-2xl flex flex-col justify-center items-start`}
@@ -28,7 +79,8 @@ const Hero = () => {
                   <h3 className="text-2xl font-bold mb-2">20K+</h3>
                   <p className="text-sm mb-4">Lorem Ipsum</p>
                 </div>
-              ))}
+              ))} */}
+              <AutoCountingComponent />
             </div>
             <p className="text-m mt-10">
               Commute in <br /> LuxuryCommute in Luxury <br /> Commute in Luxury
@@ -87,6 +139,12 @@ const Hero = () => {
           width={500}
         />
         <div className="w-[100%] xl:w-[30%] relative flex flex-col justify-evenly mb-4 xl:mb-0">
+          <p className="text-[4rem] text-black font-normal xl:hidden block">
+            About{" "}
+            <span className=" font-bold bg-gradient-to-r from-[#0753E5] to-[#2EC0E4] bg-clip-text text-transparent">
+              Conexus
+            </span>
+          </p>
           <div className="px-4 py-12 bg-gray-100 rounded-3xl">
             <p className="text-bold text-2xl text-black mb-3">Our Passion</p>
             <p className="text-gray-400  pr-10">
@@ -105,7 +163,7 @@ const Hero = () => {
           />
         </div>
         <div className="w-[100%] xl:w-[40%] flex flex-col">
-          <p className="text-[4rem] text-black font-normal">
+          <p className="text-[4rem] text-black font-normal xl:block hidden">
             About{" "}
             <span className=" font-bold bg-gradient-to-r from-[#0753E5] to-[#2EC0E4] bg-clip-text text-transparent">
               Conexus

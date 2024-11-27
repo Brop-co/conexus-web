@@ -1,19 +1,27 @@
+'use client'
+
 import { headerListItems } from "@/app/constants";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { BiCloset } from "react-icons/bi";
+import { CgClose } from "react-icons/cg";
+import { LuMenu } from "react-icons/lu";
 
 type Props = object;
 
 function Header({ }: Props) {
+
+  const [isOpen, setIsOpen] = useState(false)
+  const toggle = () => setIsOpen(prev => !prev)
   return (
     <section className="min-w-full flex p-1 px-3 items-center justify-between sticky top-0 backdrop:blur-lg z-50 bg-white shadow-md">
       <div className="w-auto  gap-2 hidden md:flex">
         {headerListItems.map((item, index) => (
           <a
             className={`p-2 backdrop:blur-lg rounded-full pl-4 pr-4  ${index == 0
-                ? "bg-orange-blue-gradient text-white"
-                : "bg-black bg-opacity-[.03] hover:bg-opacity-10"
+              ? "bg-orange-blue-gradient text-white"
+              : "bg-black bg-opacity-[.03] hover:bg-opacity-10"
               }`}
             href={item.link}
             key={index}
@@ -22,7 +30,31 @@ function Header({ }: Props) {
           </a>
         ))}
       </div>
-
+      <div className="md:hidden block cursor-pointer">
+        <LuMenu onClick={toggle} className="text-2xl cusor-pointer" />
+      </div>
+      {
+        isOpen && (
+          <div className="gap-2 md:hidden flex flex-col w-full absolute top-0 left-0 h-[100dvh] bg-white text-neutral-700 p-3 z-50">
+            <button>
+              <CgClose onClick={toggle} className="text-2xl cusor-pointer" />
+            </button>
+            {headerListItems.map((item, index) => (
+              <a
+                onClick={() => setIsOpen(false)}
+                className={`p-2 backdrop:blur-lg rounded-full pl-4 pr-4  ${index == 0
+                  ? "bg-orange-blue-gradient text-white"
+                  : "bg-black bg-opacity-[.03] hover:bg-opacity-10"
+                  }`}
+                href={item.link}
+                key={index}
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+        )
+      }
       <div>
         <Image src={`/logo.svg`} className="w-[60px]" width={100} height={100} alt="Conexus Logo" />
       </div>
@@ -34,6 +66,8 @@ function Header({ }: Props) {
           Join Waiting List
         </Link>
       </div>
+
+
     </section>
   );
 }

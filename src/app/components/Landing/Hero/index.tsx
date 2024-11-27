@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className=" text-white">
       <div className="m-[2vw] mb-[6vh]  rounded-3xl bg-orange-blue-gradient">
-        <div className="marquee bg-white bg-opacity-10 rounded-t-3xl p-4">
+        <div className="marquee bg-white bg-opacity-10 rounded-t-3xl p-4 overflow-hidden">
           <div className="marquee-inner flex gap-5 w-auto overflow-hidden">
             {Array.from({ length: 8 }).map((_, index) => (
               <div className="flex gap-5 items-center text-white" key={index}>
@@ -15,7 +15,7 @@ const Hero = () => {
                 <p className="text-6xl font-extralight">Conexus</p>
               </div>
             ))}
-         </div>
+          </div>
         </div>
         <div className="flex justify-between py-10 px-[4vw] relative">
           <div className="w-fit">
@@ -78,7 +78,7 @@ const Hero = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className=" m-[2vw] rounded-3xl flex justify-between flex-col xl:flex-row">
+      <div className=" m-[2vw] flex justify-between flex-col xl:flex-row gap-3">
         <Image
           className="hidden xl:block"
           src={"/images/image3.png"}
@@ -86,7 +86,7 @@ const Hero = () => {
           height={200}
           width={500}
         />
-        <div className="w-[100%] xl:w-[30%] relative flex flex-col justify-between mb-4 xl:mb-0">
+        <div className="w-[100%] xl:w-[30%] relative flex flex-col justify-evenly mb-4 xl:mb-0">
           <div className="px-4 py-12 bg-gray-100 rounded-3xl">
             <p className="text-bold text-2xl text-black mb-3">Our Passion</p>
             <p className="text-gray-400  pr-10">
@@ -105,15 +105,15 @@ const Hero = () => {
           />
         </div>
         <div className="w-[100%] xl:w-[40%] flex flex-col">
-          <p className="text-[4rem] text-black font-normal text-right">
+          <p className="text-[4rem] text-black font-normal">
             About{" "}
             <span className=" font-bold bg-gradient-to-r from-[#0753E5] to-[#2EC0E4] bg-clip-text text-transparent">
               Conexus
             </span>
           </p>
 
-          <div className="flex-grow flex flex-col  xl:flex-row items-end xl:items-center space-x-2">
-            <div className="pr-10 w-full xl:w-[80%] py-8 bg-gray-100 rounded-3xl flex-grow h-full mb-2 xl:mb-0">
+          <div className="flex-grow flex flex-col space-x-2 relative items-center gap-2">
+            <div className="pr-10 w-[90%] xl:w-[80%] py-8 bg-gray-100 rounded-3xl flex-grow h-full mb-2 xl:mb-0">
               <p className="text-bold text-2xl text-black mb-3 text-right">
                 Our Experience
               </p>
@@ -123,16 +123,35 @@ const Hero = () => {
                 Eleifend mauris ut duis eu urna ullamcorper hendrerit. Euismod
                 volutpat molestie neque pulvi.
               </p>
+
+              <div className=" justify-self-end text-black flex items-center gap-3 mt-2">
+                {["instagram", "linkedin", "youtube"].map((icon, index) => (
+                  <button
+                    key={index}
+                    className="rounded-full h-12 w-12 border border-[#0C1F46] flex items-center justify-center text-[#0C1F46] bg-[#0C1F4638]"
+                  >
+                    <span className="sr-only">{icon}</span>
+                    <i className={`fab fa-${icon} fa-lg`} />
+                  </button>
+                ))}
+              </div>
             </div>
-            <Link
-              className=" rounded-full flex flex-row xl:flex-col items-center p-2 xl:p-0 space-x-4 xl:space-x-0 xl:space-y-12 justify-center xl:justify-end xl:pb-8 h-full w-[20rem] xl:w-fit bg-gradient-to-r from-[#2563EB] to-[#FA8626]"
-              href={""}
+            {/* <button
+              className="h-full rounded-full flex items-center justify-center flex-col bg-gradient-to-r from-[#2563EB] to-[#FA8626]"
+              // href={""}
             >
-              <p className="transform xl:rotate-90"> Learn more</p>
+              <p className="transform xl:rotate-90 text-2xl"> Learn more</p>
               <div className="p-2 bg-white  rounded-full w-10 h-10 flex items-center justify-center">
                 <i className="fa-solid fa-arrow-right text-black fa-lg -rotate-45" />
               </div>
-            </Link>
+            </button> */}
+
+            <button className="bg-gradient-to-r from-[#2563EB] to-[#FA8626] rounded-full m-0 p-2 text-2xl w-[80%] flex justify-center gap-4 items-center">
+              Learn more
+              <div className="p-2 bg-white  rounded-full w-10 h-10 flex items-center justify-center">
+                <i className="fa-solid fa-arrow-right text-neutral-700 fa-lg -rotate-45" />
+              </div>
+            </button>
           </div>
         </div>
       </div>

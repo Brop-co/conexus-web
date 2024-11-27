@@ -5,7 +5,6 @@ import { StarIcon } from "../../core/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { Parallax } from "react-scroll-parallax";
-import { useScroll, useTransform, motion } from "framer-motion";
 
 const AutoCountingComponent = () => {
   return (
@@ -57,10 +56,6 @@ const formatNumber = (num: number) => {
 };
 
 const Hero = () => {
-  const { scrollYProgress } = useScroll()
-
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
-
   return (
     <section className=" text-white">
       <div className="m-[2vw] mb-[6vh]  rounded-3xl bg-orange-blue-gradient">

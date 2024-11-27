@@ -8,7 +8,7 @@ type Props = object;
 function Header({}: Props) {
   return (
     <section className="min-w-full flex p-1 pl-3 pr-3 items-center justify-between">
-      <div className="w-auto flex gap-2">
+      <div className="w-auto  gap-2 hidden md:flex">
         {headerListItems.map((item, index) => (
           <Link
             className={`p-2 backdrop:blur-lg rounded-full pl-4 pr-4  ${
@@ -25,11 +25,11 @@ function Header({}: Props) {
       </div>
 
       <div>
-        <Image src={`/logo.svg`} width={100} height={100} alt="Conexus Logo" />
+        <Image src={`/logo.svg`} className="w-[60px] md:w-[100px]" width={100} height={100} alt="Conexus Logo" />
       </div>
-      <div className="px-px p-[0.65rem] rounded-full bg-orange-blue-gradient">
+      <div className="px-px p-[0.65rem] md:p-0 rounded-full bg-orange-blue-gradient">
         <Link
-          className={`  rounded-full p-3  bg-faded-orange-blue-gradient bg-white`}
+          className={`  rounded-full p-3   bg-faded-orange-blue-gradient bg-white`}
           href=""
         >
           Join Waiting List

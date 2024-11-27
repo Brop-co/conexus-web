@@ -186,7 +186,7 @@ const Footer = () => {
             href="mailto:team@conexus.rw"
             className="hover:underline font-bold text-white"
           >
-            team@conexus.rw
+            team@brop.rw
           </a>
         </div>
       </div>

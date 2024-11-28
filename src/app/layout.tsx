@@ -3,6 +3,10 @@ import "./globals.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Footer from "./components/Landing/Footer";
 import Header from "./components/Landing/Header";
+import ParallaxProvider from "@/providers/parallax-provider";
+import 'aos/dist/aos.css';
+import '@/providers/aos'
+
 
 export const metadata: Metadata = {
   title: "Conexus",
@@ -16,11 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>
-        <Header />
-        {children}
-        <Footer />
-      </body>
+      <ParallaxProvider>
+        <body className={`antialiased text-neutral-600`}>
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </ParallaxProvider>
     </html>
   );
 }

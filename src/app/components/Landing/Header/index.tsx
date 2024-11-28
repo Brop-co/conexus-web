@@ -4,7 +4,6 @@ import { headerListItems } from "@/app/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { BiCloset } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
 import { LuMenu } from "react-icons/lu";
 
